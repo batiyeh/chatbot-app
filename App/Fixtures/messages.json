@@ -1,0 +1,38 @@
+[
+  {
+    "message": "Hi, how's it going?",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Couldn't be better.",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Jokes",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "You're quite the kidder.",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "I love you",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "I like you too.",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  }
+]
