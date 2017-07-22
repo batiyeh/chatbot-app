@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
-import styles from './Styles/BotBubbleStyles'
+import styles from './Styles/UserBubbleStyles'
 
-class BotBubble extends Component {
+class UserBubble extends Component {
   render () {
     return (
       <View style={styles.messageRow}>
@@ -12,4 +12,4 @@ class BotBubble extends Component {
   }
 }
 
-export default BotBubble
+export default UserBubble

@@ -6,6 +6,7 @@ import { Images } from '../Themes'
 // Styles
 import styles from './Styles/MessageListStyles'
 import BotBubble from '../Components/BotBubble'
+import UserBubble from '../Components/UserBubble'
 
 export default class MessageList extends Component {
   render () {
@@ -21,10 +22,20 @@ export default class MessageList extends Component {
   }
 
   renderFlatListItem(item){
-    return(
-      <View key={"parentView"+item.message}>
-        <BotBubble key={"messages"+item.message} message={item.message}></BotBubble>
-      </View>
-    )
+    if (!item.user){
+      return(
+        <View key={"parentView"+item.message}>
+          <BotBubble key={"messages"+item.message} message={item.message}></BotBubble>
+        </View>
+      )
+    }
+
+    else{
+      return(
+        <View key={"parentView"+item.message}>
+          <UserBubble key={"messages"+item.message} message={item.message}></UserBubble>
+        </View>
+      )
+    }
   }
 }
