@@ -12,7 +12,7 @@
     "username": "batiyeh"
   },
   {
-    "message": "Jokes",
+    "message": "I like jokes",
     "time_sent": "2017-07-21 23:18:27",
     "user": true,
     "username": "batiyeh"
@@ -24,13 +24,97 @@
     "username": "batiyeh"
   },
   {
-    "message": "I love you",
+    "message": "What's the weather like?",
     "time_sent": "2017-07-21 23:18:27",
     "user": true,
     "username": "batiyeh"
   },
   {
-    "message": "I like you too.",
+    "message": "It's sunny outside",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "What is your favorite thing to do?",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Just sit here and answer questions",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Well that doesn't sound all that fun...",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Oh don't worry, it is!",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Hi, how's it going?",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Couldn't be better.",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "I like jokes",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "You're quite the kidder.",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "What's the weather like?",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "It's sunny outside",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "What is your favorite thing to do?",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Just sit here and answer questions",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": false,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Well that doesn't sound all that fun...",
+    "time_sent": "2017-07-21 23:18:27",
+    "user": true,
+    "username": "batiyeh"
+  },
+  {
+    "message": "Oh don't worry, it is!",
     "time_sent": "2017-07-21 23:18:27",
     "user": false,
     "username": "batiyeh"

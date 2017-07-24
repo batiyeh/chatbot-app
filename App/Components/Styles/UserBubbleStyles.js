@@ -12,8 +12,8 @@ export default {
     marginRight: 10,
     padding: 5,
     backgroundColor: Colors.frost,
-    width: 150,
+    width: 200,
     borderRadius: 10,
-    fontSize: 12
+    fontSize: 14
   }
 }

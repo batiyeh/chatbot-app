@@ -11,12 +11,21 @@ import UserBubble from '../Components/UserBubble'
 export default class MessageList extends Component {
   render () {
     return (
-      <View key={"parentViewMessageFlatList"} style={styles.mainContainer}>
-        <FlatList
-          keyExtractor={(item, index) => index}
-          data={require('../Fixtures/messages.json')}
-          renderItem={({item}) => this.renderFlatListItem(item)}
-        />
+      <View style={styles.mainContainer}>
+        <View key={"parentViewMessageFlatList"} style={styles.messageContainer}>
+          <FlatList
+            keyExtractor={(item, index) => index}
+            data={require('../Fixtures/messages.json')}
+            renderItem={({item}) => this.renderFlatListItem(item)}
+            ref={ref => this.scrollView = ref}
+            onContentSizeChange={(contentWidth, contentHeight)=>{
+                this.scrollView.scrollToEnd({animated: true});
+            }}
+          />
+        </View>
+        <View style={styles.inputContainer}>
+          
+        </View>
       </View>
     )
   }

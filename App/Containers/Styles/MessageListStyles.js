@@ -5,10 +5,24 @@ export default StyleSheet.create({
   applicationView: {
     flex: 1
   },
-  container: {
+  mainContainer: {
     flex: 1,
+    flexDirection: 'column',
+  },
+  messageContainer: {
+    flex: 12,
     justifyContent: 'center',
-    backgroundColor: Colors.background
+  },
+  inputContainer: {
+    flex: 1,
+    borderTopWidth: 1,
+    borderColor: Colors.lightGrey,
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowRadius: 5,
+    shadowOpacity: 1.0
   },
   welcome: {
     fontSize: 20,
