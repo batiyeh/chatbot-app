@@ -23,7 +23,8 @@ const colors = {
   banner: '#5F3E63',
   text: '#E0D7E5',
   wsu: '#3cc457',
-  lightGrey: '#cccccc'
+  lightGrey: '#cccccc',
+  botName: '#777777'
 }
 
 export default colors

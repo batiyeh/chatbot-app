@@ -14,5 +14,11 @@ export default {
     width: 200,
     borderRadius: 10,
     fontSize: 14
+  },
+  botName: {
+    marginBottom: 0,
+    marginLeft: 10,
+    color: Colors.lightGrey,
+    fontSize: 9,
   }
 }

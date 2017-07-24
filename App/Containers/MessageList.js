@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { FlatList, Text, Image, View } from 'react-native'
 
-import { Images } from '../Themes'
+//Components
+import BotBubble from '../Components/BotBubble'
+import UserBubble from '../Components/UserBubble'
+import MessageInput from '../Components/MessageInput'
 
 // Styles
 import styles from './Styles/MessageListStyles'
-import BotBubble from '../Components/BotBubble'
-import UserBubble from '../Components/UserBubble'
 
 export default class MessageList extends Component {
   render () {
@@ -24,7 +25,7 @@ export default class MessageList extends Component {
           />
         </View>
         <View style={styles.inputContainer}>
-          
+          <MessageInput></MessageInput>
         </View>
       </View>
     )

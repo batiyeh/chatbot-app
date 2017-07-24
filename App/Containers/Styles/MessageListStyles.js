@@ -10,7 +10,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   messageContainer: {
-    flex: 12,
+    flex: 11,
     justifyContent: 'center',
   },
   inputContainer: {
