@@ -5,9 +5,7 @@ import { Provider } from 'react-redux'
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
 
-// create our store
 const store = createStore()
-
 /**
  * Provides an entry point into our application.  Both index.ios.js and index.android.js
  * call this component first.
@@ -27,7 +25,4 @@ class App extends Component {
   }
 }
 
-// allow reactotron overlay for fast design in dev mode
-export default DebugConfig.useReactotron
-  ? console.tron.overlay(App)
-  : App
+export default App
