@@ -1,7 +1,15 @@
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
+import API from '../Services/Api'
 
-messageData = require("../Fixtures/messages.json")
+getInitialData = async() => {
+  const api = API.create()
+  const messages = await api.getMessages()
+  // const messages = require('../Fixtures/messages.json')
+}
+
+// messageData = require('../Fixtures/messages.json')
+messageData = {}
 
 /* ------------- Types and Action Creators ------------- */
 

@@ -18,15 +18,6 @@ class MessageList extends Component {
     super(props)
     const { messages, actions } = this.props;
 
-    /* ***********************************************************
-    * STEP 2
-    * Teach datasource how to detect if rows are different
-    * Make this function fast!  Perhaps something like:
-    *   (r1, r2) => r1.id !== r2.id}
-    *************************************************************/
-    // const rowHasChanged = (r1, r2) => r1 !== r2
-    // const ds = new ListView.DataSource({rowHasChanged})
-
     this.state = {
       dataSource: messages,
       actions: actions
@@ -34,24 +25,39 @@ class MessageList extends Component {
   }
 
   render () {
-    return (
-      <View style={styles.mainContainer}>
-        <View key={"parentViewMessageFlatList"} style={styles.messageContainer}>
-          <FlatList
-            keyExtractor={(item, index) => index}
-            data={this.state.dataSource}
-            renderItem={({item}) => this.renderFlatListItem(item)}
-            ref={ref => this.scrollView = ref}
-            onContentSizeChange={(contentWidth, contentHeight)=>{
-                this.scrollView.scrollToEnd({animated: true});
-            }}
-          />
+    if (!this.state.dataSource){
+      return (
+        <View style={styles.mainContainer}>
+          <View style={styles.messageContainer}>
+
+          </View>
+          <View style={styles.inputContainer}>
+            <MessageInput></MessageInput>
+          </View>
         </View>
-        <View style={styles.inputContainer}>
-          <MessageInput></MessageInput>
+      )
+    }
+
+    else{
+      return (
+        <View style={styles.mainContainer}>
+          <View key={"parentViewMessageFlatList"} style={styles.messageContainer}>
+            <FlatList
+              keyExtractor={(item, index) => index}
+              data={this.state.dataSource}
+              renderItem={({item}) => this.renderFlatListItem(item)}
+              ref={ref => this.scrollView = ref}
+              onContentSizeChange={(contentWidth, contentHeight)=>{
+                  this.scrollView.scrollToEnd({animated: true});
+              }}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <MessageInput></MessageInput>
+          </View>
         </View>
-      </View>
-    )
+      )
+    }
   }
 
   renderFlatListItem(item){
@@ -75,7 +81,7 @@ class MessageList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    messages: state.messages.messageList
+    messages: state.messages.messageList.messages
   }
 }
 
