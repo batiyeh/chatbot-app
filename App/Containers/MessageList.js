@@ -14,6 +14,7 @@ import styles from './Styles/MessageListStyles'
 class MessageList extends Component {
   constructor (props) {
     super(props)
+    console.log(props)
 
     this.state = {
       text: '',

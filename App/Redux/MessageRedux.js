@@ -8,8 +8,8 @@ getInitialData = async() => {
   // const messages = require('../Fixtures/messages.json')
 }
 
-messageData = require('../Fixtures/messages.json')
-// messageData = {}
+// messageData = require('../Fixtures/messages.json')
+messageData = []
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
