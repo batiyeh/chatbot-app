@@ -22,8 +22,15 @@ class MessageList extends Component {
   }
 
   send = () => {
-    const state = reducer(this.props.actions.sendMessage(this.state.text))
+    message = this.state.text
+
+    const state = reducer(this.props.actions.sendMessage(message))
     this.clearTextInput()
+    this.botResponse(message)
+  }
+
+  botResponse = (message) => {
+    const state = reducer(this.props.actions.botResponse(message))
   }
 
   clearTextInput = () => {

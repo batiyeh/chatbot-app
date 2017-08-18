@@ -2,10 +2,12 @@ import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 import API from '../Services/Api'
 
-getInitialData = async() => {
-  const api = API.create()
-  const messages = await api.getMessages()
-  // const messages = require('../Fixtures/messages.json')
+getBotResponse = () => {
+  // const api = API.create()
+  // const response = await api.getBotResponse()
+  //
+  // return response
+  return "This is a bot's response"
 }
 
 // messageData = require('../Fixtures/messages.json')
@@ -13,7 +15,8 @@ messageData = []
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
-  sendMessage: ['message']
+  sendMessage: ['message'],
+  botResponse: ['message']
 })
 
 export const MessageTypes = Types
@@ -37,7 +40,20 @@ export const sendMessage = (state, action) => {
   })
 }
 
+export const botResponse = (state, action) => {
+  const { message } = action
+  var responseObj = Immutable({
+    message: getBotResponse(message),
+    user: false
+  })
+
+  return state.merge({
+    messageList: state.messageList.concat(responseObj)
+  })
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SEND_MESSAGE]: sendMessage
+  [Types.SEND_MESSAGE]: sendMessage,
+  [Types.BOT_RESPONSE]: botResponse
 })
