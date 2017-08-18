@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import { FlatList, Text, Image, View } from 'react-native'
-import Actions, { reducer, INITIAL_STATE } from '../Redux/MessageRedux'
+import { View, FlatList, Text, TextInput, TouchableNativeFeedback, TouchableHighlight, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { MessageTypes } from '../Redux/MessageRedux'
+import MessageActions, { reducer, INITIAL_STATE } from '../Redux/MessageRedux'
 
 //Components
 import BotBubble from '../Components/BotBubble'
 import UserBubble from '../Components/UserBubble'
-import MessageInput from '../Components/MessageInput'
 
 // Styles
 import styles from './Styles/MessageListStyles'
@@ -16,35 +14,30 @@ import styles from './Styles/MessageListStyles'
 class MessageList extends Component {
   constructor (props) {
     super(props)
-    const { messages, actions } = this.props;
 
     this.state = {
-      dataSource: messages,
-      actions: actions
+      text: '',
     }
   }
 
+  send = () => {
+    const state = reducer(this.props.actions.sendMessage(this.state.text))
+    this.clearTextInput()
+  }
+
+  clearTextInput = () => {
+    this.setState({
+      text: '',
+    })
+  }
+
   render () {
-    if (!this.state.dataSource){
-      return (
-        <View style={styles.mainContainer}>
-          <View style={styles.messageContainer}>
-
-          </View>
-          <View style={styles.inputContainer}>
-            <MessageInput></MessageInput>
-          </View>
-        </View>
-      )
-    }
-
-    else{
       return (
         <View style={styles.mainContainer}>
           <View key={"parentViewMessageFlatList"} style={styles.messageContainer}>
             <FlatList
               keyExtractor={(item, index) => index}
-              data={this.state.dataSource}
+              data={this.props.messages}
               renderItem={({item}) => this.renderFlatListItem(item)}
               ref={ref => this.scrollView = ref}
               onContentSizeChange={(contentWidth, contentHeight)=>{
@@ -53,11 +46,29 @@ class MessageList extends Component {
             />
           </View>
           <View style={styles.inputContainer}>
-            <MessageInput></MessageInput>
+            <View style={styles.inputRow}>
+              <View style={styles.messageContainer}>
+                <TextInput
+                  style={styles.messageInputBox}
+                  onChangeText={(text) => this.setState({text})}
+                  placeholder="Enter Message..."
+                  value={this.state.text}
+                  underlineColorAndroid='rgba(0,0,0,0)'
+                />
+              </View>
+              <View style={styles.buttonContainer}>
+                <TouchableNativeFeedback
+                    onPress={this.send}
+                    background={TouchableNativeFeedback.SelectableBackground()}>
+                  <View style={styles.button}>
+                    <Text style={styles.text}>Send</Text>
+                  </View>
+                </TouchableNativeFeedback>
+              </View>
+            </View>
           </View>
         </View>
       )
-    }
   }
 
   renderFlatListItem(item){
@@ -80,14 +91,19 @@ class MessageList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  var messages = state.messages.messageList
+
+  if (!messages)
+    messages = []
+
   return {
-    messages: state.messages.messageList.messages
+    messages: messages
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(MessageTypes, dispatch)
+    actions: bindActionCreators(MessageActions, dispatch)
   }
 }
 

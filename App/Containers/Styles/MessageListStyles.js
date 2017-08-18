@@ -14,7 +14,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   inputContainer: {
-    flex: 1,
+    height: 54,
     borderTopWidth: 1,
     borderColor: Colors.lightGrey,
     shadowOffset: {
@@ -24,18 +24,28 @@ export default StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 1.0
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    fontFamily: Fonts.type.base,
-    margin: Metrics.baseMargin
+  inputRow: {
+    flex: 1,
+    flexDirection: 'row',
   },
-  myImage: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center'
+  messageContainer: {
+    flex: 5
+  },
+  messageInputBox: {
+
+  },
+  buttonContainer:{
+    flex: 1,
+  },
+  button:{
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.wsu,
+    height: 30
   },
   text: {
-    color: "#000"
+    color: Colors.snow,
   }
 })

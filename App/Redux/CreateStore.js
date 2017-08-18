@@ -26,7 +26,6 @@ export default (rootReducer) => {
 
   const store = createStore(rootReducer, compose(...enhancers))
 
-
   if (ReduxPersist.active) {
     RehydrationServices.updateReducers(store)
   }

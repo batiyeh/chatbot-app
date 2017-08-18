@@ -8,32 +8,36 @@ getInitialData = async() => {
   // const messages = require('../Fixtures/messages.json')
 }
 
-// messageData = require('../Fixtures/messages.json')
-messageData = {}
+messageData = require('../Fixtures/messages.json')
+// messageData = {}
 
 /* ------------- Types and Action Creators ------------- */
-
 const { Types, Creators } = createActions({
-  userMessage: ['message']
+  sendMessage: ['message']
 })
 
 export const MessageTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
-
 export const INITIAL_STATE = Immutable({
   messageList: messageData
 })
 
 /* ------------- Reducers ------------- */
+export const sendMessage = (state, action) => {
+  const { message } = action
+  var messageObj = Immutable({
+    message: message,
+    user: true
+  })
 
-export const userMessage = (state, { message }) => {
-  return state.merge({ messageList: message })
+  return state.merge({
+    messageList: state.messageList.concat(messageObj)
+  })
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
-
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.USER_MESSAGE]: userMessage
+  [Types.SEND_MESSAGE]: sendMessage
 })
