@@ -30,13 +30,12 @@ class MessageList extends Component {
   }
 
   botResponse = (message) => {
-    // const state = reducer(this.props.actions.getBotResponse(message))
-    // this.props.actions.getBotResponse(message)
     const api = API.create()
     const response = api.getBotResponse(message)
-      .then((response) => response.data)
+      .then((response) => console.log(response)) //response.data)
       .then((responseJson) => {
-        reducer(this.props.actions.sendBotResponse(responseJson.title))
+        console.log(responseJson)
+        reducer(this.props.actions.sendBotResponse(responseJson))
       })
   }
 
