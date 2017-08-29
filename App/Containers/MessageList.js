@@ -31,11 +31,18 @@ class MessageList extends Component {
 
   botResponse = (message) => {
     const api = API.create()
+    var bot = ""
+    
     const response = api.getBotResponse(message)
-      .then((response) => console.log(response)) //response.data)
+      .then((response) => response.data)
       .then((responseJson) => {
-        console.log(responseJson)
-        reducer(this.props.actions.sendBotResponse(responseJson))
+        if (responseJson.bot == "" || responseJson.bot == null)
+          bot = "Didn't recognize command"
+
+        else
+          bot = responseJson.bot
+
+        reducer(this.props.actions.sendBotResponse(bot))
       })
   }
 
