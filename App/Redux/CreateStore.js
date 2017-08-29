@@ -2,19 +2,17 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { autoRehydrate } from 'redux-persist'
 import ReduxPersist from '../Config/ReduxPersist'
 import RehydrationServices from '../Services/RehydrationServices'
+import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import Config from '../Config/DebugConfig'
 
-// creates the store
 export default (rootReducer) => {
-  /* ------------- Redux Configuration ------------- */
   const middleware = []
   const enhancers = []
 
-  // Debugger Middleware
-  middleware.push(logger)
-
   /* ------------- Assemble Middleware ------------- */
+  middleware.push(thunk)
+  middleware.push(logger)
 
   enhancers.push(applyMiddleware(...middleware))
 
@@ -24,6 +22,7 @@ export default (rootReducer) => {
     enhancers.push(autoRehydrate())
   }
 
+  /* ------------- Create Store ------------- */
   const store = createStore(rootReducer, compose(...enhancers))
 
   if (ReduxPersist.active) {

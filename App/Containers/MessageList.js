@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, FlatList, Text, TextInput, TouchableNativeFeedback, TouchableHighlight, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import API from '../Services/Api'
 import MessageActions, { reducer, INITIAL_STATE } from '../Redux/MessageRedux'
 
 //Components
@@ -14,7 +15,6 @@ import styles from './Styles/MessageListStyles'
 class MessageList extends Component {
   constructor (props) {
     super(props)
-    console.log(props)
 
     this.state = {
       text: '',
@@ -30,7 +30,14 @@ class MessageList extends Component {
   }
 
   botResponse = (message) => {
-    const state = reducer(this.props.actions.botResponse(message))
+    // const state = reducer(this.props.actions.getBotResponse(message))
+    // this.props.actions.getBotResponse(message)
+    const api = API.create()
+    const response = api.getBotResponse(message)
+      .then((response) => response.data)
+      .then((responseJson) => {
+        reducer(this.props.actions.sendBotResponse(responseJson.title))
+      })
   }
 
   clearTextInput = () => {

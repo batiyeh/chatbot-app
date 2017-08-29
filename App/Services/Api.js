@@ -1,21 +1,29 @@
 import apisauce from 'apisauce'
 
-const create = (baseURL = 'http://127.0.0.1:5000/api/') => {
+const create = (baseURL = 'https://facebook.github.io/react-native/movies.json') => {
   const api = apisauce.create({
     baseURL,
     headers: {
-      'Cache-Control': 'no-cache'
+      'Content-Type': 'application/json'
     },
-    timeout: 10000
+    timeout: 5000
   })
 
-  const getMessages = () => api.get('messages')
-  // const getRate = () => api.get('rate_limit')
-  // const getUser = (username) => api.get('search/users', {q: username})
+  const getBotResponse = (message) => api.get('')
+  //      .then((response) => response.data)
+  //      .then((responseJson) => {
+  //        botResponse = responseJson.movies[0].title
+  //        return botResponse
+  //      })
+  //      .catch((err) => {
+  //        console.log(err)
+  //      })
 
+  //   return botResponse
+  // }
 
   return {
-    getMessages
+    getBotResponse
   }
 }
 
