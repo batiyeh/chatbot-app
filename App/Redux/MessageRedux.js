@@ -1,14 +1,7 @@
 import { createReducer, createActions } from 'reduxsauce'
+import { REHYDRATE } from 'redux-persist/constants'
 import Immutable from 'seamless-immutable'
 import API from '../Services/Api'
-
-// getResponse = async(message) => {
-//   const api = API.create()
-//   const response = await api.getBotResponse(message)
-//   const botMessage = response.data.title
-
-//   return botMessage
-// }
 
 messageData = []
 
@@ -51,8 +44,21 @@ export const sendBotResponse = (state, action) => {
   })
 }
 
+// export const deleteAll = (state, action) => {
+
+// }
+
+export const rehydrateData = (state, action) => {
+  const messages = action.payload.messages.messageList
+
+  return state.merge({
+    messageList: messages
+  })
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SEND_MESSAGE]: sendMessage,
-  [Types.SEND_BOT_RESPONSE]: sendBotResponse
+  [Types.SEND_BOT_RESPONSE]: sendBotResponse,
+  [REHYDRATE]: rehydrateData
 })

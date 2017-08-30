@@ -1,5 +1,6 @@
+import { AsyncStorage } from 'react-native'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { autoRehydrate } from 'redux-persist'
+import { autoRehydrate, persistStore } from 'redux-persist'
 import ReduxPersist from '../Config/ReduxPersist'
 import RehydrationServices from '../Services/RehydrationServices'
 import thunk from 'redux-thunk'
@@ -25,6 +26,7 @@ export default (rootReducer) => {
   /* ------------- Create Store ------------- */
   const store = createStore(rootReducer, compose(...enhancers))
 
+  persistStore(store, {storage: AsyncStorage});
   if (ReduxPersist.active) {
     RehydrationServices.updateReducers(store)
   }
