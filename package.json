@@ -9,6 +9,7 @@
 	"dependencies": {
 		"apisauce": "^0.14.0",
 		"jsonify": "0.0.0",
+		"prop-types": "^15.5.10",
 		"ramda": "^0.24.1",
 		"react": "16.0.0-alpha.12",
 		"react-devtools": "^2.5.0",
