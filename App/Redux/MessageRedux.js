@@ -51,11 +51,18 @@ export const deleteAll = (state, action) => {
 }
 
 export const rehydrateData = (state, action) => {
-  const messages = action.payload.messages.messageList
+  if (Object.keys(action.payload).length != 0){
+    var messages = action.payload.messages.messageList
+    
+    return state.merge({
+      messageList: messages
+    })
+  }
 
-  return state.merge({
-    messageList: messages
-  })
+  else{
+    return INITIAL_STATE
+  }
+
 }
 
 /* ------------- Hookup Reducers To Types ------------- */

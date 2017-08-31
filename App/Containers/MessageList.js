@@ -64,6 +64,7 @@ class MessageList extends Component {
               renderItem={({item}) => this.renderFlatListItem(item)}
               ref={ref => this.scrollView = ref}
               onContentSizeChange={(contentWidth, contentHeight)=>{
+                if (contentHeight > 0)
                   this.scrollView.scrollToEnd({animated: true});
               }}
             />
