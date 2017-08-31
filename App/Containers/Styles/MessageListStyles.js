@@ -9,6 +9,9 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  toolbarContainer: {
+    flex: 1
+  },
   messageContainer: {
     flex: 11,
     justifyContent: 'center',
@@ -36,14 +39,15 @@ export default StyleSheet.create({
   },
   buttonContainer:{
     flex: 1,
+    
   },
   button:{
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.wsu,
-    height: 30
+    backgroundColor: Colors.primary,
+    height: 30,
   },
   text: {
     color: Colors.snow,

@@ -8,6 +8,7 @@ import MessageActions, { reducer, INITIAL_STATE } from '../Redux/MessageRedux'
 //Components
 import BotBubble from '../Components/BotBubble'
 import UserBubble from '../Components/UserBubble'
+import Toolbar from '../Components/Toolbar'
 
 // Styles
 import styles from './Styles/MessageListStyles'
@@ -55,6 +56,7 @@ class MessageList extends Component {
   render () {
       return (
         <View style={styles.mainContainer}>
+          <Toolbar></Toolbar>
           <View key={"parentViewMessageFlatList"} style={styles.messageContainer}>
             <FlatList
               keyExtractor={(item, index) => index}

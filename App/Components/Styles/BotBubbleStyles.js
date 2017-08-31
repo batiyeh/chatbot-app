@@ -10,7 +10,7 @@ export default {
     marginVertical: Metrics.baseMargin,
     marginLeft: 10,
     padding: 5,
-    backgroundColor: Colors.wsu,
+    backgroundColor: Colors.primary,
     width: 200,
     borderRadius: 10,
     fontSize: 14

@@ -44,9 +44,11 @@ export const sendBotResponse = (state, action) => {
   })
 }
 
-// export const deleteAll = (state, action) => {
-
-// }
+export const deleteAll = (state, action) => {
+  return state.merge({
+    messageList: {}
+  })
+}
 
 export const rehydrateData = (state, action) => {
   const messages = action.payload.messages.messageList
