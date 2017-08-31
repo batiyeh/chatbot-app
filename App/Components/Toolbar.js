@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
-import { View, Text, Platform, ToolbarAndroid, StatusBar } from 'react-native'
+import { View, Text, Image, Platform, ToolbarAndroid, TouchableOpacity, TouchableNativeFeedback, StatusBar } from 'react-native'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import MessageActions, { reducer, INITIAL_STATE } from '../Redux/MessageRedux'
 import styles from './Styles/ToolbarStyles'
 import { Images, Colors } from '../Themes'
+import PopupMenu from '../Components/PopupMenu'
 
 class Toolbar extends Component {
-    showMore = () => {
-        
+    constructor (props) {
+        super(props)
+    }
+
+    onPopupEvent = (eventName, index) => {
+        if (eventName !== 'itemSelected') return
+            if (index === 0) this.onClear()
+    }
+
+    onClear = () => {
+        const state = reducer(this.props.actions.deleteAll())
     }
 
     render () {
@@ -23,27 +36,49 @@ class Toolbar extends Component {
                             backgroundColor: Colors.primary,
                         }}
                     />
-                    <ToolbarAndroid
-                    title="Chatbot"
-                    actions={[{title: 'Settings', icon: Images.more_android_xhdpi, show: 'always'}]}
-                    onActionSelected={this.showMore}
-                    style={styles.toolbarContainer} 
-                    titleColor={Colors.snow} />
+                    <View style={styles.toolbarAndroid}>
+                        <View style={styles.toolbarItemContainer}>
+                            <View style={styles.toolbarTextContainer}>
+                                <Text style={styles.toolbarText}>Chatbot</Text>
+                            </View>
+                            <View style={styles.toolbarMoreContainer}>                              
+                                <View style={{borderRadius: 30, padding: 3}}>
+                                    <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(Colors.primaryHighlight, true)}>
+                                        <View>
+                                            <PopupMenu actions={['Clear']} onPress={this.onPopupEvent} />
+                                        </View>
+                                    </TouchableNativeFeedback>
+                                </View>      
+                            </View>
+                        </View>
+                    </View>
                 </View>
             )
         }
 
         else{
             return (
-                <ToolbarAndroid
-                  title="Chatbot"
-                  actions={[{title: 'Settings', icon: Images.more_android_xhdpi, show: 'always'}]}
-                  onActionSelected={this.showMore}
-                  style={styles.toolbarContainer}
-                  titleColor={Colors.snow} />
+                <View></View>
             )
         }
     }
 }
 
-export default Toolbar
+const mapStateToProps = (state) => {
+    var messages = state.messages.messageList
+  
+    if (!messages)
+      messages = []
+  
+    return {
+      messages: messages
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      actions: bindActionCreators(MessageActions, dispatch)
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Toolbar)

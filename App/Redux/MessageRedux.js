@@ -8,7 +8,8 @@ messageData = []
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
   sendMessage: ['message'],
-  sendBotResponse: ['message']
+  sendBotResponse: ['message'],
+  deleteAll: null
 })
 
 export const MessageTypes = Types
@@ -45,9 +46,7 @@ export const sendBotResponse = (state, action) => {
 }
 
 export const deleteAll = (state, action) => {
-  return state.merge({
-    messageList: {}
-  })
+  return INITIAL_STATE
 }
 
 export const rehydrateData = (state, action) => {
@@ -69,5 +68,6 @@ export const rehydrateData = (state, action) => {
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SEND_MESSAGE]: sendMessage,
   [Types.SEND_BOT_RESPONSE]: sendBotResponse,
+  [Types.DELETE_ALL]: deleteAll,
   [REHYDRATE]: rehydrateData
 })
