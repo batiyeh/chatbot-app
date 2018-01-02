@@ -37,11 +37,11 @@ class MessageList extends Component {
     const response = api.getBotResponse(message)
       .then((response) => response.data)
       .then((responseJson) => {
-        if (responseJson.bot == "" || responseJson.bot == null)
-          bot = "Didn't recognize command"
+        if (responseJson.response == "" || responseJson.response == null)
+          bot = "Either the message is too long or I didn't recognize what you said"
 
         else
-          bot = responseJson.bot
+          bot = responseJson.response
 
         reducer(this.props.actions.sendBotResponse(bot))
       })
