@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, Platform, ToolbarAndroid, TouchableOpacity, TouchableNativeFeedback, StatusBar } from 'react-native'
+import { View, Text, Image, Switch, Platform, ToolbarAndroid, TouchableOpacity, TouchableNativeFeedback, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import MessageActions, { reducer, INITIAL_STATE } from '../Redux/MessageRedux'
@@ -10,6 +10,9 @@ import PopupMenu from '../Components/PopupMenu'
 class Toolbar extends Component {
     constructor (props) {
         super(props)
+        this.state = {
+            bleuToggle: this.props.bleuToggle,
+        }
     }
 
     onPopupEvent = (eventName, index) => {
@@ -19,6 +22,11 @@ class Toolbar extends Component {
 
     onClear = () => {
         const state = reducer(this.props.actions.deleteAll())
+    }
+
+    onBleuToggle = (value) => {
+        this.setState({ bleuToggle: value })
+        const state = reducer(this.props.actions.toggleBleuMode(this.state.bleuToggle))
     }
 
     render () {
@@ -42,7 +50,12 @@ class Toolbar extends Component {
                                 <Text style={styles.toolbarText}>Chatbot</Text>
                             </View>
                             <View style={styles.toolbarMoreContainer}>                              
-                                <View style={{borderRadius: 30, padding: 3}}>
+                                <View style={styles.toolbarButtonsContainer}>
+                                    <Switch 
+                                        value={this.state.bleuToggle} 
+                                        onValueChange={this.onBleuToggle}
+                                        style={styles.bleuSwitch}
+                                    /> 
                                     <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(Colors.primaryHighlight, true)}>
                                         <View>
                                             <PopupMenu actions={['Clear']} onPress={this.onPopupEvent} />
@@ -66,12 +79,14 @@ class Toolbar extends Component {
 
 const mapStateToProps = (state) => {
     var messages = state.messages.messageList
-  
+    var bleuToggle = state.messages.bleuToggle
+
     if (!messages)
-      messages = []
-  
+        messages = []
+
     return {
-      messages: messages
+        messages: messages,
+        bleuToggle: bleuToggle
     }
   }
   

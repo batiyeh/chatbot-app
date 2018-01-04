@@ -22,10 +22,20 @@ export default {
   },
   toolbarMoreContainer:{
     justifyContent: 'center',
-    marginRight: 5
+    marginRight: 5,
+    marginTop: 5
   },
   moreIcon:{
     width: 33,
     height: 33
+  },
+  bleuSwitch:{
+    marginBottom: 2
+  },
+  toolbarButtonsContainer:{
+    borderRadius: 30, 
+    padding: 3, 
+    flex: 1, 
+    flexDirection: 'row'
   }
 }

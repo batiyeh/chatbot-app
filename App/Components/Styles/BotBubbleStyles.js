@@ -7,7 +7,7 @@ export default {
   },
   text: {
     color: Colors.snow,
-    marginVertical: Metrics.baseMargin,
+    marginVertical: 2,
     marginLeft: 10,
     padding: 5,
     backgroundColor: Colors.primary,

@@ -5,7 +5,7 @@ const create = (baseURL = 'http://10.0.2.2:8000') => {
     baseURL
   })
 
-  const getBotResponse = (message) => api.post('/api/botResponse/', {message: message})
+  const getBotResponse = (message, reference, bleu) => api.post('/api/botResponse/', {message: message, reference: reference, bleu: bleu})
 
   return {
     getBotResponse
