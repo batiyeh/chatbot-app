@@ -71,7 +71,30 @@ class Toolbar extends Component {
 
         else{
             return (
-                <View></View>
+                <View>
+                    <View
+                        style={{
+                            height: 24,
+                            backgroundColor: Colors.primary,
+                        }}
+                    />
+                    <View style={styles.toolbarAndroid}>
+                        <View style={styles.toolbarItemContainer}>
+                            <View style={styles.toolbarTextContainer}>
+                                <Text style={styles.toolbarText}>Chatbot</Text>
+                            </View>
+                            <View style={styles.toolbarMoreContainer}>                              
+                                <View style={styles.toolbarButtonsContainer}> 
+                                    <TouchableOpacity>
+                                        <View>
+                                            <PopupMenu actions={['Clear']} onPress={this.onPopupEvent} />
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>      
+                            </View>
+                        </View>
+                    </View>
+                </View>
             )
         }
     }

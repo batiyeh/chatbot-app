@@ -1,6 +1,6 @@
 import apisauce from 'apisauce'
 
-const create = (baseURL = 'http://10.0.2.2:8000') => {
+const create = (baseURL = 'http://localhost:8000') => {
   const api = apisauce.create({
     baseURL
   })

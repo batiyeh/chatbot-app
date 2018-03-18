@@ -73,7 +73,7 @@ export const rehydrateData = (state, action) => {
     var messages = action.payload.messages.messageList
     
     return state.merge({
-      messageList: messages
+      messageList: []
     })
   }
 

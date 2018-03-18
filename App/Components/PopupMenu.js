@@ -38,7 +38,7 @@ export default class PopupMenu extends Component {
   render () {
     return (
         <View style={{borderRadius: 30, padding: 3}}>
-            <TouchableNativeFeedback onPress={this.onPress} background={TouchableNativeFeedback.Ripple(Colors.primaryHighlight, true)}>
+            <TouchableOpacity onPress={this.onPress}>
                 <View>
                     <Icon
                         name='more-vert'
@@ -46,7 +46,7 @@ export default class PopupMenu extends Component {
                         color={Colors.snow}
                         ref={this.onRef} />
                 </View>
-            </TouchableNativeFeedback>
+            </TouchableOpacity>
       </View>
     )
   }

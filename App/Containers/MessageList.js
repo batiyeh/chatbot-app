@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, FlatList, Text, TextInput, TouchableNativeFeedback, TouchableHighlight, Platform } from 'react-native'
+import { View, FlatList, Text, TextInput, TouchableNativeFeedback, TouchableOpacity, TouchableHighlight, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import API from '../Services/Api'
@@ -141,13 +141,12 @@ class MessageList extends Component {
               />
             </View>
             <View style={styles.buttonContainer}>
-              <TouchableNativeFeedback
-                onPress={this.send}
-                background={TouchableNativeFeedback.SelectableBackground()}>
+              <TouchableOpacity
+                onPress={this.send}>
                 <View style={styles.button}>
                   <Text style={styles.text}>Send</Text>
                 </View>
-              </TouchableNativeFeedback>
+              </TouchableOpacity>
             </View>
           </View>
         </View>;
@@ -168,13 +167,12 @@ class MessageList extends Component {
               />
             </View>
             <View style={styles.buttonContainer}>
-              <TouchableNativeFeedback
-                onPress={this.send}
-                background={TouchableNativeFeedback.SelectableBackground()}>
+              <TouchableOpacity
+                onPress={this.send}>
                 <View style={styles.button}>
                   <Text style={styles.text}>Send</Text>
                 </View>
-              </TouchableNativeFeedback>
+              </TouchableOpacity>
             </View>
           </View>
         </View>;

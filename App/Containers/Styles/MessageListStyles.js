@@ -20,24 +20,24 @@ export default StyleSheet.create({
   inputContainer: {
     marginBottom: 5,
     height: 45,
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowRadius: 5,
-    shadowOpacity: 1.0,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3
+    // },
+    // shadowRadius: 5,
+    // shadowOpacity: 1.0,
     justifyContent: 'center',
     alignItems: 'center'
   },
   bleuInputContainer: {
     marginBottom: 5,
     height: 87,
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowRadius: 5,
-    shadowOpacity: 1.0,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3
+    // },
+    // shadowRadius: 5,
+    // shadowOpacity: 1.0,
     justifyContent: 'center',
     alignItems: 'center'
   },
